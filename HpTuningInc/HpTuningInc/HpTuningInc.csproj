@@ -298,6 +298,8 @@
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Customer\Cars.cshtml" />
     <Content Include="Views\Employee\Cars.cshtml" />
+    <Content Include="Views\Employee\Maintenance.cshtml" />
+    <Content Include="Views\Employee\carHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

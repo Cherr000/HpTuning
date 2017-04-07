@@ -78,5 +78,46 @@ namespace HpTuningInc.Controllers
 
             return View(carInformation);
         }
+
+        // GET: MaintenanceDetails/Create
+        public ActionResult Maintenance()
+        {
+            return View();
+        }
+
+        // POST: MaintenanceDetails/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Maintenance([Bind(Include = "maintenanceDetailID,Vin,InDate,OutDate,MaintenanceText")] MaintenanceDetail maintenanceDetail)
+        {
+            if (ModelState.IsValid)
+            {
+                MaintenanceDetail maintenanceDetailOne = new MaintenanceDetail
+                {
+                    Vin = maintenanceDetail.Vin,
+                    InDate = maintenanceDetail.InDate,
+                    OutDate = maintenanceDetail.OutDate,
+                    MaintenanceText = maintenanceDetail.MaintenanceText,
+                };
+                db.MaintenanceDetail.Add(maintenanceDetailOne);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(maintenanceDetail);
+        }
+
+        // GET: Maintenance History Look Up
+        public ActionResult carHistory(string searchString)
+        {
+            var maintenanceHistory = from a in db.MaintenanceDetail
+                                     select a;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                maintenanceHistory = maintenanceHistory.Where(s => s.Vin.Contains(searchString));
+            }
+            return View(maintenanceHistory);
+        }
     }
 }
