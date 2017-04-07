@@ -29,5 +29,9 @@ namespace HpTuningInc.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Person> Person { get; set; }
+        public DbSet<CarInformation> CarInformation { get; set; }
+        public DbSet<MaintenanceDetail> MaintenanceDetail { get; set; }
     }
 }
