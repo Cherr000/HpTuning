@@ -13,9 +13,16 @@ namespace HpTuningInc.Controllers
 
         // GET: Appointment
         [Authorize(Roles = "Admin, Employee")]
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View();
+            var events = from a in db.Events
+                         select a;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(s => s.Email.Contains(searchString) || s.Title.Contains(searchString));
+            }
+            return View(events);
         }
 
         public JsonResult GetEvents()
@@ -37,13 +44,40 @@ namespace HpTuningInc.Controllers
         // POST: Events/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,Title,Description,StartAt,EndAt,IsFullDay")] Events events)
+        public ActionResult Create([Bind(Include = "EventID,Title,Description,StartAt,EndAt,IsFullDay,Email")] Events events)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(events);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (User.IsInRole("Customer"))
+                {
+                    Events eventsOne = new Events
+                    {
+                        Title = events.Title,
+                        Description = events.Description,
+                        StartAt = events.StartAt,
+                        EndAt = events.EndAt,
+                        IsFullDay = events.IsFullDay,
+                        Email = User.Identity.Name,
+                    };
+                    db.Events.Add(eventsOne);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    Events eventsOne = new Events
+                    {
+                        Title = events.Title,
+                        Description = events.Description,
+                        StartAt = events.StartAt,
+                        EndAt = events.EndAt,
+                        IsFullDay = events.IsFullDay,
+                        Email = events.Email,
+                    };
+                    db.Events.Add(eventsOne);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(events);

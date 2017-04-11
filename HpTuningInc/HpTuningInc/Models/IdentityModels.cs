@@ -33,5 +33,6 @@ namespace HpTuningInc.Models
         public DbSet<Events> Events { get; set; }
         public DbSet<EmployeeInformation> EmployeeInformation { get; set; }
         public DbSet<CustomerInformation> CustomerInformation { get; set; }
+        public DbSet<CustomerCarInput> CustomerCarInput { get; set; }
     }
 }

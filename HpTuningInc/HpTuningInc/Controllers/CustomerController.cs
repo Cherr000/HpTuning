@@ -65,8 +65,55 @@ namespace HpTuningInc.Controllers
                     return RedirectToAction("Index");
                 }
             }
-
             return View(customerInformation);
+        }
+
+        // GET: Enter Customer Car Information
+        public ActionResult CarInfo()
+        {
+            return View();
+        }
+
+        // POST: Enter Customer Car Information
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CarInfo([Bind(Include = "customerCarInfoID,Email,Vin,Year,Make,Model,Color")] CustomerCarInput customerCarInput)
+        {
+            if (ModelState.IsValid)
+            {
+                if (User.IsInRole("Employee"))
+                {
+                    CustomerCarInput customerCarInputOne = new CustomerCarInput
+                    {
+                        Email = customerCarInput.Email,
+                        Vin = customerCarInput.Vin,
+                        Year = customerCarInput.Year,
+                        Make = customerCarInput.Make,
+                        Model = customerCarInput.Model,
+                        Color = customerCarInput.Color,
+                    };
+                    db.CustomerCarInput.Add(customerCarInputOne);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else if (User.IsInRole("Customer"))
+                {
+                    CustomerCarInput customerCarInputOne = new CustomerCarInput
+                    {
+                        Email = User.Identity.Name,
+                        Vin = customerCarInput.Vin,
+                        Year = customerCarInput.Year,
+                        Make = customerCarInput.Make,
+                        Model = customerCarInput.Model,
+                        Color = customerCarInput.Color,
+                    };
+                    db.CustomerCarInput.Add(customerCarInputOne);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Customer");
+                }
+            }
+
+            return View(customerCarInput);
         }
     }
 }

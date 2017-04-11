@@ -227,8 +227,17 @@
     <Compile Include="Migrations\201704111438389_CustomerInformation.Designer.cs">
       <DependentUpon>201704111438389_CustomerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704111917251_Events1.cs" />
+    <Compile Include="Migrations\201704111917251_Events1.Designer.cs">
+      <DependentUpon>201704111917251_Events1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704111945256_CustomerCarInput.cs" />
+    <Compile Include="Migrations\201704111945256_CustomerCarInput.Designer.cs">
+      <DependentUpon>201704111945256_CustomerCarInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CustomerCarInput.cs" />
     <Compile Include="Models\CustomerInformation.cs" />
     <Compile Include="Models\EmployeeInformation.cs" />
     <Compile Include="Models\Events.cs" />
@@ -344,6 +353,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CustomerLookUp.cshtml" />
     <Content Include="Views\Admin\EmployeeLookUp.cshtml" />
+    <Content Include="Views\Customer\CarInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -369,6 +379,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704111438389_CustomerInformation.resx">
       <DependentUpon>201704111438389_CustomerInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704111917251_Events1.resx">
+      <DependentUpon>201704111917251_Events1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704111945256_CustomerCarInput.resx">
+      <DependentUpon>201704111945256_CustomerCarInput.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
