@@ -12,6 +12,7 @@ namespace HpTuningInc.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Appointment
+        [Authorize(Roles = "Admin, Employee")]
         public ActionResult Index()
         {
             return View();
@@ -26,7 +27,7 @@ namespace HpTuningInc.Controllers
                 return new JsonResult { Data = v, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
-        
+
         // GET: Events/Create
         public ActionResult Create()
         {
