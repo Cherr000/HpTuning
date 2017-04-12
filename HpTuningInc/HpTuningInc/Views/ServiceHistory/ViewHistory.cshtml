@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HpTuningInc.Models.CarHistory>
+@{
+    ViewBag.Title = "ViewHistory";
+}
+
+<h2>HPTuningInc</h2>
+<p>Service History</p>
+
+<p>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Vin: @Html.TextBox("SearchStrings")
+        <input type="submit" value="Submit" />
+    </p>
+    }
+    </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.carHistoryID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.carHistoryID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.carHistoryID })
+            </td>*@
+        </tr>
+    }
+
+</table>

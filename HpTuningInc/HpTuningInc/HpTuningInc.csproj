@@ -205,6 +205,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServiceHistoryController.cs" />
     <Compile Include="Event.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
@@ -235,8 +236,13 @@
     <Compile Include="Migrations\201704111945256_CustomerCarInput.Designer.cs">
       <DependentUpon>201704111945256_CustomerCarInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704112046283_CarHistory.cs" />
+    <Compile Include="Migrations\201704112046283_CarHistory.Designer.cs">
+      <DependentUpon>201704112046283_CarHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CarHistory.cs" />
     <Compile Include="Models\CustomerCarInput.cs" />
     <Compile Include="Models\CustomerInformation.cs" />
     <Compile Include="Models\EmployeeInformation.cs" />
@@ -354,6 +360,9 @@
     <Content Include="Views\Admin\CustomerLookUp.cshtml" />
     <Content Include="Views\Admin\EmployeeLookUp.cshtml" />
     <Content Include="Views\Customer\CarInfo.cshtml" />
+    <Content Include="Views\ServiceHistory\Service.cshtml" />
+    <Content Include="Views\ServiceHistory\Index.cshtml" />
+    <Content Include="Views\ServiceHistory\ViewHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704111945256_CustomerCarInput.resx">
       <DependentUpon>201704111945256_CustomerCarInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704112046283_CarHistory.resx">
+      <DependentUpon>201704112046283_CarHistory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,136 @@
+﻿@model IEnumerable<HpTuningInc.Models.CustomerCarInput>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>HPTuningInc</h2>
+<p>Car Service History</p>
+
+@if (User.IsInRole("Admin") || (User.IsInRole("Employee")))
+{
+    <p>
+        @using (Html.BeginForm())
+        {
+        <p>
+            Search By Email: @Html.TextBox("SearchStrings")
+            <input type="submit" value="Search" />
+        </p>
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.customerCarInfoID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.customerCarInfoID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.customerCarInfoID })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+}
+else if (User.IsInRole("Customer"))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.customerCarInfoID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.customerCarInfoID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.customerCarInfoID })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+}
+
+<hr / >
+<h3>Enter Vin Here To See Service History</h3>
+<p>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Vin: @Html.TextBox("SearchString")
+        <input type="submit" value="Submit" />
+    </p>
+    }
+</p>
+
