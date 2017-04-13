@@ -1,0 +1,19 @@
+﻿@model HpTuningInc.Models.Reminder
+@{
+    ViewBag.Title = "ReminderPage";
+}
+
+<h2>ReminderPage</h2>
+
+<p>
+    @Html.ValidationSummary()
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>Name: @Html.TextBoxFor(model => model.Name)</p>
+    <p>Email: @Html.TextBoxFor(model => model.Email)</p>
+    <p>
+        <input type="submit" value="Submit"/>
+    </p>
+}
