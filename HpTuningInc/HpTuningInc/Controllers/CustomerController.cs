@@ -96,7 +96,7 @@ namespace HpTuningInc.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                else if (User.IsInRole("Customer"))
+                else if (User.IsInRole("Customer") || (User.IsInRole("Admin")))
                 {
                     CustomerCarInput customerCarInputOne = new CustomerCarInput
                     {
@@ -109,7 +109,7 @@ namespace HpTuningInc.Controllers
                     };
                     db.CustomerCarInput.Add(customerCarInputOne);
                     db.SaveChanges();
-                    return RedirectToAction("Index", "Customer");
+                    return RedirectToAction("Index");
                 }
             }
 

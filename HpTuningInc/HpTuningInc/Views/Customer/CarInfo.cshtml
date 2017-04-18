@@ -3,14 +3,14 @@
     ViewBag.Title = "CarInfo";
 }
 
-<h2>Create</h2>
+<h2>HpTuningInc</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>CustomerCarInput</h4>
+        <h4>Please Enter Car Information</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @if (User.IsInRole("Employee"))
@@ -69,7 +69,7 @@
                 </div>
             </div>
         }
-        else if (User.IsInRole("Customer"))
+        else if (User.IsInRole("Customer") || (User.IsInRole("Admin")))
         {
             <div class="form-group">
                 @Html.LabelFor(model => model.Vin, htmlAttributes: new { @class = "control-label col-md-2" })
