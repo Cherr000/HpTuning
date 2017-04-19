@@ -1,0 +1,43 @@
+﻿@model IEnumerable < HpTuningInc.Models.EmployeeClockIn>
+@{
+    ViewBag.Title = "TimeClock";
+}
+
+<h2>TimeClock</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClockIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClockOut)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClockIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClockOut)
+            </td>
+        </tr>
+    }
+
+</table>

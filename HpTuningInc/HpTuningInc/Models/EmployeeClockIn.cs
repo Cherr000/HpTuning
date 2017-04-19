@@ -9,10 +9,11 @@ namespace HpTuningInc.Models
     public class EmployeeClockIn
     {
         [Key]
+        public int ClockID { get; set; }
         public string Email { get; set; }
-        public DateTime ClockIn { get; set; }
-        public DateTime Break { get; set; }
-        public DateTime ClockOut { get; set; }
+        public string Date { get; set; }
+        public string ClockIn { get; set; }
+        public string ClockOut { get; set; }
         public string Hour { get; set; }
     }
 }
