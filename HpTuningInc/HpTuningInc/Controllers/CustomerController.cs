@@ -45,7 +45,7 @@ namespace HpTuningInc.Controllers
                     };
                     db.CustomerInformation.Add(customerInformationOne);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("CarInfo");
                 }
                 else if (User.IsInRole("Employee"))
                 {
@@ -62,7 +62,7 @@ namespace HpTuningInc.Controllers
                     };
                     db.CustomerInformation.Add(customerInformationOne);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("CarInfo");
                 }
             }
             return View(customerInformation);

@@ -3,5 +3,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Welcome To HpTuningInc</h2>
-Hello @User.Identity.Name
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img height="400" width="1200" src="~/Content/Img/cc-banner.jpg" alt="Image">
+            <div class="carousel-caption">
+                <h3>HPTuning Inc</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center">
+    <h3>Hello There @User.Identity.Name</h3><br>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("CarInfo", "Customer")';">New Car Enter Here</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "ServiceHistory")';">Look Up Service History</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Create", "Appointment")';">Schedule Appointment Here</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("PaymentWithCreditCard", "Paypal")';">Pay Direct With Credit Card</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("PaymentWithPaypal", "Paypal")';">Pay with Paypal Account</button>        
+        </div>
+    </div>
+</div><br>

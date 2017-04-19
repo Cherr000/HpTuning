@@ -3,6 +3,44 @@
     ViewBag.Title = "Index";
 }
 
-<h2>HPTungingInc</h2>
-<p>Hello Admin</p>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img height="400" width="1200" src="~/Content/Img/cc-banner.jpg" alt="Image">
+            <div class="carousel-caption">
+                <h3>HPTuning Inc</h3>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container text-center">
+    <h3>Appointment Schedule</h3><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("CustomerLookUp", "Admin")';">CustomerLookUp</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("EmployeeLookUp", "Admin")';">EmployeeLookUp</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("TimeClock", "Employee")';">EmployeeTimeCard</button>            
+            <a href="https://www.sandbox.paypal.com/webscr" class="btn btn-default" target="_blank">PayPal Account</a>
+        </div>
+        <div ng-app="myApp" ng-controller="myNgController">
+            <div class="col-sm-8">
+                <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar"></div>
+            </div>
+        </div>
+    </div>
+</div><br>
+
+@* CSS *@
+<link href="~/Content/fullcalendar.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+@* JS *@
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/jquery-1.11.3.js"></script>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/calendar.js"></script>
+<script src="~/Scripts/fullcalendar.js"></script>
+<script src="~/Scripts/gcal.js"></script>
+@* OUR ANGULAR COMPONENTs *@
+<script src="~/Scripts/MyApp.js"></script>

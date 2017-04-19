@@ -2,37 +2,43 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <div class="container text-center">
-        <h1>HPTuning Inc</h1>
-        <p>Milwaukee Best Auto Service</p>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img height="400" width="1200" src="~/Content/Img/cc-banner.jpg" alt="Image">
+            <div class="carousel-caption">
+                <h3>HPTuning Inc</h3>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Service</h2>
-        <p>
-            - Oil Change<br />
-            - Brake<br />
-            - Tire<br />
-            - Engine Work<br />
-            - Exhaust<br />
-            - Heat And A/c<br />
-            - Supsension
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">More</a></p>
+<div class="container text-center">
+    <h3>Milwaukee Fastest Auto Repair Shop</h3><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>Pay Bill</h2>
+            <p>Don't Want To Pay In Pereson</p>
+            <p>You Can Now Pay Online With PayPal</p>
+
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("PaymentWithCreditCard", "Paypal")';">Pay Direct With Credit Card</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("PaymentWithPaypal", "Paypal")';">Pay with Paypal Account</button>  
+        </div>
+        <div class="col-sm-4">
+            <a href="https://www.accuweather.com/en/us/milwaukee-wi/53202/weather-forecast/351543" class="aw-widget-legal">
+                <!--
+                By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+                -->
+            </a><div id="awcc1492586211265" class="aw-widget-current" data-locationkey="351543" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1492586211265"></div>
+            <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+
+        </div>
+        <div class="col-sm-4">
+            <h2>Schedule Appointment</h2>
+            <p>Call Us At 1-800-HPTuning To Set A Appointment</p>
+            <p>You Can Set A Appointment Online</p>
+            <p><a class="btn btn-default" @Html.ActionLink("Set Appiontment Here", "Create", "Appointment")</a></p>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Schedule Appointment</h2>
-        <p>Call Us At 1-800-HPTuning To Set A Appointment</p>
-        <p>You Can Set A Appointment Online</p>
-        <p><a class="btn btn-default" @Html.ActionLink("Set Appiontment Here", "Create", "Appointment")</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Pay Bill</h2>
-        <p>Don't Want To Pay In Pereson</p>
-        <p>You Can Now Pay Online With PayPal</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Pay Here</a></p>
-    </div>
-</div>
+</div><br>

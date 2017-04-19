@@ -3,8 +3,44 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Welcome To HpTuningInc</h2>
-Hello @User.Identity.Name
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img height="400" width="1200" src="~/Content/Img/cc-banner.jpg" alt="Image">
+            <div class="carousel-caption">
+                <h3>HPTuning Inc</h3>
+            </div>
+        </div>
+    </div>
+</div>
 
-<button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("ClockIn", "Employee")';">Clock In</button>
-<button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("ClockOut", "Employee")';">Clock Out</button>
+<div class="container text-center">
+    <h3>HI, @User.Identity.Name</h3><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>PLEASE CLOCK IN OR OUT</h3>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("ClockIn", "Employee")';">Clock In</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("ClockOut", "Employee")';">Clock Out</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("TimeClock", "Employee")';">TimeCard</button>
+        </div>
+        <div class="col-sm-4">
+            <a href="https://www.accuweather.com/en/us/milwaukee-wi/53202/weather-forecast/351543" class="aw-widget-legal">
+                <!--
+        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+        -->
+            </a><div id="awcc1492586211265" class="aw-widget-current" data-locationkey="351543" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1492586211265"></div>
+            <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+
+        </div>
+        <div class="col-sm-4">
+            <h3>Work</h3>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("CustomerInfo", "Customer")';">New Car Enter Here</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Appointment")';">Appointment</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "ServiceHistory")';">Look Up Customer Car</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Service", "ServiceHistory")';">Enter Service History</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("ReminderPage", "SendMail")';">Send Out Reminder</button>
+        </div>
+    </div>
+</div><br>
+

@@ -83,7 +83,7 @@ namespace HpTuningInc.Controllers
             tran.amount = amnt;
             tran.description = "Description about the payment amount.";
             tran.item_list = itemList;
-            tran.invoice_number = "100958";
+            tran.invoice_number = "100960";
 
             // Now, we have to make a list of transaction and add the transactions object
             // to this list. You can create one or more object as per your requirements
@@ -281,7 +281,7 @@ namespace HpTuningInc.Controllers
             transactionList.Add(new Transaction()
             {
                 description = "Transaction description.",
-                invoice_number = "000004",
+                invoice_number = "000005",
                 amount = amount,
                 item_list = itemList
             });
